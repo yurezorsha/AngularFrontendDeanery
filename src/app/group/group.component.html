@@ -1,0 +1,21 @@
+<div class="col-md-6">
+<h2>Groups List</h2>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th class="hidden">Id</th>
+    <th>Name</th>
+       <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let gr of grs">
+    <td class="hidden">{{gr.idGroup}}</td>
+    <td>{{gr.name}}</td>
+   
+    <td><button class="btn btn-danger" (click)="deleteGr(gr)"> Delete Group</button></td>
+  </tr>
+  </tbody>
+</table>
+</div>

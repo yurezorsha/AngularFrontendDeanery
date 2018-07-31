@@ -1,0 +1,54 @@
+<div class="col-md-6">
+  <h2 class="text-center">Edit Student</h2>
+<form #f="ngForm" novalidate  (ngSubmit)="f.form.valid && editStud()" >
+  <div class="form-group">
+    <label for="idStud">IdStud:</label>
+    <input type="idStud" [(ngModel)]="stud.idStud" #idStud="ngModel" placeholder="idStud" name="idStud" class="form-control" id="idStud" required pattern="^[0-9]*$" maxlength="10" #change>
+    <div *ngIf="f.submitted && !idStud.valid" class="alert alert-danger">ID use only numbers</div>
+  </div>
+
+  <div class="form-group">
+    <label for="firstName">First Name:</label>
+    <input [(ngModel)]="stud.firstName" #firstName="ngModel" placeholder="First Name" name="firstName" class="form-control" type="text" id="firstName" required #change>
+    <div *ngIf="f.submitted && !firstName.valid" class="alert alert-danger">FirstName is required</div>
+  </div>
+
+  <div class="form-group">
+   <label for="lastName">Last Name:</label>
+   <input [(ngModel)]="stud.surName" #LastName="ngModel" placeholder="Last name" name="lastName" class="form-control" id="lastName" required #change>
+   <div *ngIf="f.submitted && !LastName.valid" class="alert alert-danger">LastName is required</div>
+  </div>
+  
+  <div class="form-group">
+   <label for="patronymic">Patronymic:</label>
+   <input [(ngModel)]="stud.patronymic" #Patronymic="ngModel" placeholder="patronymic" name="patronymic" class="form-control" id="patronymic" required #change>
+   <div *ngIf="f.submitted && !Patronymic.valid" class="alert alert-danger">Patronymic is required</div>
+  </div>
+  
+  <div class="form-group">
+   	<label for="course">Course:</label>
+   	<input [(ngModel)]="stud.course" #Course="ngModel" placeholder="course" name="course" class="form-control" id="course" required pattern="[1-5]{1}" #change>
+   	<div *ngIf="f.submitted && !Course.valid" class="alert alert-danger">Invalid course. Course should be 1-5</div>
+  </div>
+  <div class="form-group">
+    	<label for="group">Group: </label>
+    	<!--  <select class="form-control" id="select" name="gr" size="1" [(ngModel)]="stud.gr" #Group="ngModel"  required>
+        <option  *ngFor="let gr of grs"    name="grs" 
+        [ngValue]="gr"  [selected]="gr?.name==selected?.name">
+        {{gr.name}}</option>
+        </select> 
+        <div *ngIf="f.submitted && !Group.valid" class="alert alert-danger">Group is required</div>-->
+<mat-form-field>
+<mat-select placeholder="" [(ngModel)]="stud.gr" name="selectgroup" [compareWith]="compareFn" #change>
+    <mat-option *ngFor="let gr of grs" [value]="gr" >
+      {{gr.name}}
+    </mat-option>
+  </mat-select>
+  </mat-form-field>
+</div>
+  
+    
+  <button class="btn btn-success" type="submit">Edit</button>
+  <button class="btn btn-secondary" type="button" (click)="cancel()">Cancel</button>
+</form>
+</div>
