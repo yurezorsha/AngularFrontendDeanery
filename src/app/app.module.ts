@@ -7,6 +7,8 @@ import { StudComponent } from './stud/stud.component';
 import { GrService } from './group/group.service';
 import { AppRoutingModule } from './app.routing.module';
 import { ContentComponent } from './content/content.component';
+import { AddGroupComponent } from './group/add-group.component';
+import { EditGroupComponent } from './group/edit-group.component';
 import { GrComponent } from './group/group.component';
 import { AccessGuard } from './guards/access_guard';
 import { AuthGuard } from './guards/auth_guard';
@@ -21,6 +23,7 @@ import { MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/mate
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConfirmationModalModule } from 'ng-confirmation-modal';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,8 +31,10 @@ import { ConfirmationModalModule } from 'ng-confirmation-modal';
     AddStudComponent,
     EditStudComponent,
     GrComponent,
+    AddGroupComponent,
+    EditGroupComponent,
     ContentComponent,
-    LoginComponent
+    LoginComponent,
     
     
   ],
@@ -45,14 +50,7 @@ import { ConfirmationModalModule } from 'ng-confirmation-modal';
     MatPaginatorModule,
     MatSortModule,
     ConfirmationModalModule.forRoot({
-   //optional global config
- 
-   //confirmBtnClass: 'btn btn-success',
-   //confirmBtnText: 'Confirm',
-   //cancelBtnClass: 'btn btn-danger',
-   //cancelBtnText: 'Cancel',
-   //modalSize: 'lg',
-   //modalClass: 'some-modal-class'
+   
   })
  
    

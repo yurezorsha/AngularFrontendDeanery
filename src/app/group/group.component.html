@@ -1,21 +1,64 @@
-<div class="col-md-6">
+<div >
 <h2>Groups List</h2>
-
-<table class="table table-striped">
-  <thead>
-  <tr>
-    <th class="hidden">Id</th>
-    <th>Name</th>
-       <th>Action</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let gr of grs">
-    <td class="hidden">{{gr.idGroup}}</td>
-    <td>{{gr.name}}</td>
-   
-    <td><button class="btn btn-danger" (click)="deleteGr(gr)"> Delete Group</button></td>
-  </tr>
-  </tbody>
-</table>
 </div>
+
+
+<div>
+
+<button  type="button" class="btn btn-primary" data-toggle="button" [routerLink]="['/content',{ outlets: { cont: ['addgroup'] } }]" [disabled]="isAccess()">
+  Create Group
+</button>
+
+</div>
+<br>
+
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+
+<mat-table #table [dataSource]="dataSource" class="mat-elevation-z7" matSort>
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="ID">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>ID </mat-header-cell>
+    <mat-cell *matCellDef="let gr"> {{ gr.idGroup}} </mat-cell>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="Name" >
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+    <mat-cell *matCellDef="let gr"> {{gr.name}} </mat-cell>
+  </ng-container>
+
+ 
+  
+  <ng-container matColumnDef="edit">
+     <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
+    <mat-cell *matCellDef="let gr"> 
+    <button class="btn btn-success" [routerLink]="['/content',{ outlets: { cont: ['edit-group',gr.idGroup] } }]" [disabled]="isAccess()">Edit</button>
+    
+     </mat-cell>
+     
+</ng-container>
+ <ng-container matColumnDef="delete">
+     <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
+    <mat-cell *matCellDef="let gr"> 
+    
+    <button ngConfirm [title]="'Confirm'"
+  [message]="'Are you sure delete this item?'"
+  [options]="options"
+  (onConfirm)="deleteGr(gr)"
+  (onCancel)="cancelled()" class="btn btn-danger"  (click)="confirmed()" [disabled]="isAccess()">Delete</button>
+     </mat-cell>
+   
+</ng-container>
+
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+</mat-table>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>

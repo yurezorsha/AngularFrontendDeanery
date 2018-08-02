@@ -2,37 +2,7 @@
 
 <h2>Students List</h2>
 
-<!--  <table class="table table-striped">
-  <thead>
-  <tr>
-    <th class="hidden">Id</th>
-    <th>FirstName</th>
-    <th>SurName</th>
-    <th>Patronymic</th>
-    <th>Course</th>
-    <th>Group</th>
-    <th colspan="2">Action</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let stud of studs">
-    <td class="hidden">{{stud.idStud}}</td>
-    <td>{{stud.firstName}}</td>
-    <td>{{stud.surName}}</td>
-     <td>{{stud.patronymic}}</td>
-    <td>{{stud.course}}</td>
-    <td>{{stud.gr.name}}</td>
-    <td><button class="btn btn-success" [routerLink]="['/content',{ outlets: { cont: ['edit-stud',stud.idStud] } }]" [disabled]="isAccess()">Edit</button></td>
-    <td><button class="btn btn-danger" (click)="deleteStud(stud)" [disabled]="isAccess()">Delete</button></td>
-  </tr>
-  <tr><td align="right" colspan="8">
-  <button  type="button" class="btn btn-primary" data-toggle="button" [routerLink]="['/content',{ outlets: { cont: ['addstud'] } }]" [disabled]="isAccess()">
-  Create Student
-</button></td>
-  </tr>
-  </tbody>
-  
-</table>-->
+
 <div>
 
 <button  type="button" class="btn btn-primary" data-toggle="button" [routerLink]="['/content',{ outlets: { cont: ['addstud'] } }]" [disabled]="isAccess()">

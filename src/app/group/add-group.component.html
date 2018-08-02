@@ -1,0 +1,19 @@
+<div class="col-md-6">
+  <h2 class="text-center">Add Group</h2>
+<form #f="ngForm" novalidate  (ngSubmit)="f.form.valid && createGroup()">
+  <div class="form-group">
+    <label for="idGroup">idGroup:</label>
+    <input type="idGroup" [(ngModel)]="group.idGroup" #idGroup="ngModel" placeholder="idGroup" name="idStud" class="form-control" id="idGroup" pattern="^[0-9]*$" required  maxlength="10">
+    <div *ngIf="f.submitted && !idGroup.valid" class="alert alert-danger">ID use only numbers</div>
+  </div>
+
+  <div class="form-group">
+    <label for="Name">Name:</label>
+    <input [(ngModel)]="group.name" #Name="ngModel" placeholder="Name" name="Name" class="form-control" type="text" id="Name" required >
+    <div *ngIf="f.submitted && !Name.valid" class="alert alert-danger">Name is required</div>
+  </div>
+
+  
+  <button class="btn btn-success"  type="submit" >Create</button>
+</form>
+</div>

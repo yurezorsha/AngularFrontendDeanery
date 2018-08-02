@@ -24,6 +24,10 @@ export class GrService {
     return this.http.get<Gr[]>(this.grUrl);
   }
   
+  public getGr(id: number) {
+    return this.http.get<Gr>(this.grUrl + "/"+id, );
+  }
+  
   
 
   public deleteGr(group: Gr) {

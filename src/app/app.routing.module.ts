@@ -1,4 +1,6 @@
 import { ContentComponent } from './content/content.component';
+import { AddGroupComponent } from './group/add-group.component';
+import { EditGroupComponent } from './group/edit-group.component';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -30,6 +32,8 @@ const routes: Routes = [
      { path: 'studs', component: StudComponent, outlet: 'cont'},
      { path: 'addstud', component: AddStudComponent, outlet: 'cont', data: {roles:'ADMIN'} },
      { path: 'groups', component: GrComponent, outlet: 'cont' },
+     { path: 'addgroup', component: AddGroupComponent, outlet: 'cont', data: {roles:'ADMIN'} },
+     { path: 'edit-group/:id', component: EditGroupComponent, outlet: 'cont', data: {roles:'ADMIN'} },
      { path: 'edit-stud/:id', component: EditStudComponent, outlet: 'cont', data: {roles:'ADMIN'} }] },
   { path: '**', redirectTo: '/app-login' }
 ];
