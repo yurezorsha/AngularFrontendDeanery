@@ -12,6 +12,9 @@ import { TokenInterceptor } from './login/TokenInterceptor';
 import { LoginComponent } from './login/login.component';
 import {AddStudComponent} from './stud/add-stud.component';
 import { EditStudComponent } from './stud/edit-stud.component';
+import { AddTeacherComponent } from './teacher/add-teacher.component';
+import { EditTeacherComponent } from './teacher/edit-teacher.component';
+import { TeacherComponent } from './teacher/teacher.component';
 import { CdkTableModule } from '@angular/cdk/table';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -28,13 +31,18 @@ const routes: Routes = [
   //{ path: 'groups', component: GrComponent },
   //{ path: 'edit-stud/:id', component: EditStudComponent },
   { path: 'app-login', component: LoginComponent },
-  { path: 'content', component: ContentComponent,canActivate: [AuthGuard],canActivateChild: [AuthGuard], children: [
+  { path: 'content', component: ContentComponent,canActivate: [AuthGuard],canActivateChild: [AuthGuard], 
+  children: [
      { path: 'studs', component: StudComponent, outlet: 'cont'},
      { path: 'addstud', component: AddStudComponent, outlet: 'cont', data: {roles:'ADMIN'} },
+     { path: 'edit-stud/:id', component: EditStudComponent, outlet: 'cont', data: {roles:'ADMIN'} },
      { path: 'groups', component: GrComponent, outlet: 'cont' },
      { path: 'addgroup', component: AddGroupComponent, outlet: 'cont', data: {roles:'ADMIN'} },
      { path: 'edit-group/:id', component: EditGroupComponent, outlet: 'cont', data: {roles:'ADMIN'} },
-     { path: 'edit-stud/:id', component: EditStudComponent, outlet: 'cont', data: {roles:'ADMIN'} }] },
+     { path: 'teachers', component: TeacherComponent, outlet: 'cont'},
+     { path: 'add-teacher', component: AddTeacherComponent, outlet: 'cont', data: {roles:'ADMIN'}},
+     { path: 'edit-teacher/:id', component: EditTeacherComponent, outlet: 'cont', data: {roles:'ADMIN'} }
+   ] },
   { path: '**', redirectTo: '/app-login' }
 ];
 

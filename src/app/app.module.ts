@@ -14,10 +14,16 @@ import { AccessGuard } from './guards/access_guard';
 import { AuthGuard } from './guards/auth_guard';
 import { AuthService } from './login/auth.service';
 import { LoginComponent } from './login/login.component';
+import { MarkService } from './mark/mark.service';
 import {StudService} from './stud/stud.service';
 import {HttpClientModule} from "@angular/common/http";
 import {AddStudComponent} from './stud/add-stud.component';
 import { EditStudComponent } from './stud/edit-stud.component';
+import { SubjectService } from './subject/subject.service';
+import { AddTeacherComponent } from './teacher/add-teacher.component';
+import { EditTeacherComponent } from './teacher/edit-teacher.component';
+import { TeacherComponent } from './teacher/teacher.component';
+import { TeacherService } from './teacher/teacher.service';
 import { HttpModule } from '@angular/http';
 import { MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -33,6 +39,9 @@ import { ConfirmationModalModule } from 'ng-confirmation-modal';
     GrComponent,
     AddGroupComponent,
     EditGroupComponent,
+    TeacherComponent,
+    AddTeacherComponent,
+    EditTeacherComponent,
     ContentComponent,
     LoginComponent,
     
@@ -55,7 +64,7 @@ import { ConfirmationModalModule } from 'ng-confirmation-modal';
  
    
   ],
-  providers: [StudService, GrService, AuthService, AuthGuard],
+  providers: [StudService, GrService, TeacherService, SubjectService, MarkService, AuthService, AuthGuard],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA ]
   

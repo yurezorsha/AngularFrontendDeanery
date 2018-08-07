@@ -1,0 +1,31 @@
+<div class="col-md-6">
+  <h2 class="text-center">Add Teacher</h2>
+<form #f="ngForm" novalidate  (ngSubmit)="f.form.valid && createTeacher()">
+  <div class="form-group">
+    <label for="idTeach">Id:</label>
+    <input type="idTeach" [(ngModel)]="teacher.idTeach" #idTeach="ngModel" placeholder="idTeach" name="idTeach" class="form-control" id="idTeach" required pattern="^[0-9]*$" maxlength="10">
+    <div *ngIf="f.submitted && !idTeach.valid" class="alert alert-danger">ID use only numbers</div>
+  </div>
+
+  <div class="form-group">
+    <label for="firstName">First Name:</label>
+    <input [(ngModel)]="teacher.firstName" #firstName="ngModel" placeholder="First Name" name="firstName" class="form-control" type="text" id="firstName" required >
+    <div *ngIf="f.submitted && !firstName.valid" class="alert alert-danger">FirstName is required</div>
+  </div>
+
+  <div class="form-group">
+   <label for="lastName">Last Name:</label>
+   <input [(ngModel)]="teacher.surName" #LastName="ngModel" placeholder="Last name" name="lastName" class="form-control" id="lastName" required>
+   <div *ngIf="f.submitted && !LastName.valid" class="alert alert-danger">LastName is required</div>
+  </div>
+  
+  <div class="form-group">
+   <label for="patronymic">Patronymic:</label>
+   <input [(ngModel)]="teacher.patronymic" #Patronymic="ngModel" placeholder="patronymic" name="patronymic" class="form-control" id="patronymic" required>
+   <div *ngIf="f.submitted && !Patronymic.valid" class="alert alert-danger">Patronymic is required</div>
+  </div>
+  
+  
+  <button class="btn btn-success"  type="submit" >Create</button>
+</form>
+</div>
