@@ -3,7 +3,7 @@
 <form #f="ngForm" novalidate  (ngSubmit)="f.form.valid && editStud()" >
   <div class="form-group">
     <label for="idStud">IdStud:</label>
-    <input type="idStud" [(ngModel)]="stud.idStud" #idStud="ngModel" placeholder="idStud" name="idStud" class="form-control" id="idStud" required pattern="^[0-9]*$" maxlength="10" #change>
+    <input type="idStud" [readOnly]="true" [(ngModel)]="stud.idStud" #idStud="ngModel" placeholder="idStud" name="idStud" class="form-control" id="idStud" required pattern="^[0-9]*$" maxlength="10" #change>
     <div *ngIf="f.submitted && !idStud.valid" class="alert alert-danger">ID use only numbers</div>
   </div>
 

@@ -18,7 +18,7 @@ export class GrService {
   constructor(private http:HttpClient) {}
 
   
-    private grUrl = environment.baseUrl+'/user/gr'
+    private grUrl = environment.baseUrl+'/deanery/gr'
 
   public getGrs() {
     return this.http.get<Gr[]>(this.grUrl);

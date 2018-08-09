@@ -12,6 +12,9 @@ import { TokenInterceptor } from './login/TokenInterceptor';
 import { LoginComponent } from './login/login.component';
 import {AddStudComponent} from './stud/add-stud.component';
 import { EditStudComponent } from './stud/edit-stud.component';
+import { AddSubjectComponent } from './subject/add-subject.component';
+import { EditSubjectComponent } from './subject/edit-subject.component';
+import { SubjectComponent } from './subject/subject.component';
 import { AddTeacherComponent } from './teacher/add-teacher.component';
 import { EditTeacherComponent } from './teacher/edit-teacher.component';
 import { TeacherComponent } from './teacher/teacher.component';
@@ -34,14 +37,17 @@ const routes: Routes = [
   { path: 'content', component: ContentComponent,canActivate: [AuthGuard],canActivateChild: [AuthGuard], 
   children: [
      { path: 'studs', component: StudComponent, outlet: 'cont'},
-     { path: 'addstud', component: AddStudComponent, outlet: 'cont', data: {roles:'ADMIN'} },
+     { path: 'add-stud', component: AddStudComponent, outlet: 'cont', data: {roles:'ADMIN'} },
      { path: 'edit-stud/:id', component: EditStudComponent, outlet: 'cont', data: {roles:'ADMIN'} },
      { path: 'groups', component: GrComponent, outlet: 'cont' },
-     { path: 'addgroup', component: AddGroupComponent, outlet: 'cont', data: {roles:'ADMIN'} },
+     { path: 'add-group', component: AddGroupComponent, outlet: 'cont', data: {roles:'ADMIN'} },
      { path: 'edit-group/:id', component: EditGroupComponent, outlet: 'cont', data: {roles:'ADMIN'} },
      { path: 'teachers', component: TeacherComponent, outlet: 'cont'},
      { path: 'add-teacher', component: AddTeacherComponent, outlet: 'cont', data: {roles:'ADMIN'}},
-     { path: 'edit-teacher/:id', component: EditTeacherComponent, outlet: 'cont', data: {roles:'ADMIN'} }
+     { path: 'edit-teacher/:id', component: EditTeacherComponent, outlet: 'cont', data: {roles:'ADMIN'} },
+     { path: 'subjects', component: SubjectComponent, outlet: 'cont'},
+     { path: 'add-subject', component: AddSubjectComponent, outlet: 'cont', data: {roles:'ADMIN'} },
+     { path: 'edit-subject/:id', component: EditSubjectComponent, outlet: 'cont', data: {roles:'ADMIN'} },
    ] },
   { path: '**', redirectTo: '/app-login' }
 ];
@@ -50,15 +56,7 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes),
     ConfirmationModalModule.forRoot({
-   //optional global config
- 
-   //confirmBtnClass: 'btn btn-success',
-   //confirmBtnText: 'Confirm',
-   //cancelBtnClass: 'btn btn-danger',
-   //cancelBtnText: 'Cancel',
-   //modalSize: 'lg',
-   //modalClass: 'some-modal-class'
-  })
+     })
   ],
   exports: [
     RouterModule,

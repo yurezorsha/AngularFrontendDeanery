@@ -19,6 +19,9 @@ import {StudService} from './stud/stud.service';
 import {HttpClientModule} from "@angular/common/http";
 import {AddStudComponent} from './stud/add-stud.component';
 import { EditStudComponent } from './stud/edit-stud.component';
+import { AddSubjectComponent } from './subject/add-subject.component';
+import { EditSubjectComponent } from './subject/edit-subject.component';
+import { SubjectComponent } from './subject/subject.component';
 import { SubjectService } from './subject/subject.service';
 import { AddTeacherComponent } from './teacher/add-teacher.component';
 import { EditTeacherComponent } from './teacher/edit-teacher.component';
@@ -42,6 +45,9 @@ import { ConfirmationModalModule } from 'ng-confirmation-modal';
     TeacherComponent,
     AddTeacherComponent,
     EditTeacherComponent,
+    SubjectComponent,
+    AddSubjectComponent,
+    EditSubjectComponent,
     ContentComponent,
     LoginComponent,
     

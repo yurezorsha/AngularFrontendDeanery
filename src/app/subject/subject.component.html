@@ -1,10 +1,70 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<div >
 
-</body>
-</html>
+<h2>Subjects List</h2>
+
+
+<div>
+
+<button  type="button" class="btn btn-primary" data-toggle="button" [routerLink]="['/content',{ outlets: { cont: ['add-subject'] } }]" [disabled]="isAccess()">
+  Create Subject
+</button>
+
+</div>
+<br>
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+<mat-table #table [dataSource]="dataSource" class="mat-elevation-z7" matSort>
+
+ 
+
+  <!-- Id Column -->
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>ID </mat-header-cell>
+    <mat-cell *matCellDef="let subject"> {{ subject.idSubj}} </mat-cell>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name" >
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+    <mat-cell *matCellDef="let subject"> {{subject.name}} </mat-cell>
+  </ng-container>
+
+  <!-- Teacher Column -->
+  <ng-container matColumnDef="teacher">
+    <mat-header-cell *matHeaderCellDef > Teacher </mat-header-cell>
+    <mat-cell *matCellDef="let subject"> {{subject.teacher.fio}} </mat-cell>
+  </ng-container>
+
+ 
+  
+  <ng-container matColumnDef="edit">
+     <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
+    <mat-cell *matCellDef="let subject"> 
+    <button class="btn btn-success" [routerLink]="['/content',{ outlets: { cont: ['edit-subject',subject.idSubj] } }]" [disabled]="isAccess()">Edit</button>
+    
+     </mat-cell>
+     
+</ng-container>
+ <ng-container matColumnDef="delete">
+     <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
+    <mat-cell *matCellDef="let subject"> 
+    
+    <button ngConfirm [title]="'Confirm'"
+  [message]="'Are you sure delete this item?'"
+  [options]="options"
+  (onConfirm)="deleteSubject(subject)"
+  (onCancel)="cancelled()" class="btn btn-danger"  (click)="confirmed()" [disabled]="isAccess()">Delete</button>
+     </mat-cell>
+   
+</ng-container>
+
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+</mat-table>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+ 
+
+</div>

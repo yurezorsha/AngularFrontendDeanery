@@ -48,20 +48,10 @@ export class EditStudComponent implements OnInit {
             this.patronymic=this.stud.patronymic;
             this.course=this.stud.course;
             this.group=this.stud.gr;
-            /*this.stud.patronymic = stud.patronymic;        
-            this.stud.course=stud.course;
-            this.stud.firstName=stud.surName;
-            this.stud.idStud=stud.idStud;
-            this.stud.surName=stud.surName;
-             
-            this.selected=stud.gr;
-            */
-             console.log(this.stud);
-            
-            //console.log(this.selected);
+           
             
           } else {
-            console.log(`Car with id '${id}' not found, returning to list`);
+            console.log(`Student with id '${id}' not found, returning to list`);
             this.gotoList();
           }
         });
@@ -93,7 +83,7 @@ export class EditStudComponent implements OnInit {
  
   
   gotoList() {
-    this.router.navigate(['/studs']);
+       this.router.navigateByUrl('/content/(cont:studs)');
   }
  
   editStud(): void {

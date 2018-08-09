@@ -3,5 +3,5 @@ export class Subject {
   idSubj: number;
   name: string;
   teacher: Teacher;
-  
+    
 }
