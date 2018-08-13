@@ -1,5 +1,6 @@
 <div class="col-md-6">
   <h2 class="text-center">Edit Teacher</h2>
+  <mat-card-content>
 <form #f="ngForm" novalidate  (ngSubmit)="f.form.valid && editTeacher()" >
   <div class="form-group">
     <label for="idTeach">ID:</label>
@@ -29,4 +30,5 @@
   <button class="btn btn-success" type="submit">Edit</button>
   <button class="btn btn-secondary" type="button" (click)="cancel()">Cancel</button>
 </form>
+  </mat-card-content>
 </div>

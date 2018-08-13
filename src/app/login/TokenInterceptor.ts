@@ -7,6 +7,7 @@ import {
 } from '@angular/common/http';
 import { AuthService } from '../login/auth.service';
 import { User } from '../model/model.user';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
@@ -16,8 +17,9 @@ export class TokenInterceptor implements HttpInterceptor {
   }
   
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+   
      const base64Credential: string = btoa( this.currentUser.username +':'+ this.currentUser.password);
-     console.log(base64Credential + "  "+this.currentUser.password);
+     //console.log(base64Credential + "  "+this.currentUser.password);
     request = request.clone({
       
       setHeaders: {

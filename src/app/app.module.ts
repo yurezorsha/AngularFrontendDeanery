@@ -14,6 +14,9 @@ import { AccessGuard } from './guards/access_guard';
 import { AuthGuard } from './guards/auth_guard';
 import { AuthService } from './login/auth.service';
 import { LoginComponent } from './login/login.component';
+import { AddMarkComponent } from './mark/add-mark.component';
+import { EditMarkComponent } from './mark/edit.mark.component';
+import { MarkComponent } from './mark/mark.component';
 import { MarkService } from './mark/mark.service';
 import {StudService} from './stud/stud.service';
 import {HttpClientModule} from "@angular/common/http";
@@ -28,7 +31,7 @@ import { EditTeacherComponent } from './teacher/edit-teacher.component';
 import { TeacherComponent } from './teacher/teacher.component';
 import { TeacherService } from './teacher/teacher.service';
 import { HttpModule } from '@angular/http';
-import { MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+import { MatTableModule, MatPaginatorModule, MatSortModule, MatDatepickerModule, MatNativeDateModule, MatInputModule, MatFormFieldModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConfirmationModalModule } from 'ng-confirmation-modal';
 
@@ -48,6 +51,9 @@ import { ConfirmationModalModule } from 'ng-confirmation-modal';
     SubjectComponent,
     AddSubjectComponent,
     EditSubjectComponent,
+    MarkComponent,
+    AddMarkComponent,
+    EditMarkComponent,
     ContentComponent,
     LoginComponent,
     
@@ -64,6 +70,10 @@ import { ConfirmationModalModule } from 'ng-confirmation-modal';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    
+  
     ConfirmationModalModule.forRoot({
    
   })

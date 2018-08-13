@@ -1,16 +1,14 @@
 <div >
+<mat-card-content>
 <h2>Groups List</h2>
-</div>
+
 
 
 <div>
-
 <button  type="button" class="btn btn-primary" data-toggle="button" [routerLink]="['/content',{ outlets: { cont: ['add-group'] } }]" [disabled]="isAccess()">
   Create Group
 </button>
-
 </div>
-<br>
 
 <mat-form-field>
   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
@@ -62,3 +60,5 @@
 
 </mat-table>
 <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</mat-card-content>
+</div>

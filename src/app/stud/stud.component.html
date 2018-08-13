@@ -1,43 +1,34 @@
 <div >
-
+<mat-card-content>
 <h2>Students List</h2>
-
-
-<div>
 
 <button  type="button" class="btn btn-primary" data-toggle="button" [routerLink]="['/content',{ outlets: { cont: ['add-stud'] } }]" [disabled]="isAccess()">
   Create Student
 </button>
-
-</div>
 <br>
 <mat-form-field>
   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
 </mat-form-field>
 <mat-table #table [dataSource]="dataSource" class="mat-elevation-z7" matSort>
 
-  <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
-
-  <!-- Position Column -->
   <ng-container matColumnDef="idStud">
     <mat-header-cell *matHeaderCellDef mat-sort-header>ID </mat-header-cell>
     <mat-cell *matCellDef="let stud"> {{ stud.idStud}} </mat-cell>
   </ng-container>
 
-  <!-- Name Column -->
+ 
   <ng-container matColumnDef="firstName" >
     <mat-header-cell *matHeaderCellDef mat-sort-header> FirstName </mat-header-cell>
     <mat-cell *matCellDef="let stud"> {{stud.firstName}} </mat-cell>
   </ng-container>
 
-  <!-- Weight Column -->
+  
   <ng-container matColumnDef="surName">
     <mat-header-cell *matHeaderCellDef mat-sort-header> SurName </mat-header-cell>
     <mat-cell *matCellDef="let stud"> {{stud.surName}} </mat-cell>
   </ng-container>
 
-  <!-- Symbol Column -->
+  
   <ng-container matColumnDef="patronymic">
     <mat-header-cell *matHeaderCellDef mat-sort-header> Patronymic </mat-header-cell>
     <mat-cell *matCellDef="let stud"> {{stud.patronymic}} </mat-cell>
@@ -81,5 +72,5 @@
 </mat-table>
 <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
  
-
+</mat-card-content>
 </div>

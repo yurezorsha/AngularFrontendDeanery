@@ -1,5 +1,6 @@
-<div class="col-md-6">
+<div class="col-md-6" >
   <h2 class="text-center">Add Student</h2>
+  <mat-card-content>
 <form #f="ngForm" novalidate  (ngSubmit)="f.form.valid && createStud()">
   <div class="form-group">
     <label for="idStud">IdStud:</label>
@@ -32,13 +33,14 @@
   </div>
   <div class="form-group">
     	<label for="group">Group:</label>
-    	<select  class="form-control" id="select" name="gr" size="1" [(ngModel)]="stud.gr" #Group="ngModel"  required>
-        <option *ngFor="let gr of grs"   name="grs" 
-        [ngValue]="gr" >
-        {{gr.name}}</option>
-        </select> 
+    	<mat-select placeholder="Choose the group" [(ngModel)]="stud.gr" #Group="ngModel" name="selectgroup" >
+    <mat-option *ngFor="let gr of grs" [value]="gr" >
+      {{gr.name}}
+    </mat-option>
+  </mat-select>
 <div *ngIf="f.submitted && !Group.valid" class="alert alert-danger">Group is required</div>
 </div>
   <button class="btn btn-success"  type="submit" >Create</button>
 </form>
+</mat-card-content>
 </div>

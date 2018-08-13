@@ -26,9 +26,6 @@ export class EditStudComponent implements OnInit {
  course:number;
  group:Gr;
   
-
-
-  
   
   constructor(private route: ActivatedRoute, private router: Router, private studService: StudService, private grService: GrService ) {
  
@@ -93,8 +90,7 @@ export class EditStudComponent implements OnInit {
             this.router.navigateByUrl('/content/(cont:studs)');
         });
    
-       // this.router.navigate(['../studs'],{relativeTo: this.route});
-  };
+        };
 
 }
 

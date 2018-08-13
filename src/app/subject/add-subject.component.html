@@ -1,5 +1,6 @@
 <div class="col-md-6">
   <h2 class="text-center">Add Subject</h2>
+  <mat-card-content>
 <form #f="ngForm" novalidate  (ngSubmit)="f.form.valid && createSubject()">
   <div class="form-group">
     <label for="idSubj">IdSubj:</label>
@@ -16,13 +17,14 @@
   
   <div class="form-group">
     	<label for="teacher">Teacher:</label>
-    	<select  class="form-control" id="select" name="teacher" size="1" [(ngModel)]="subject.teacher" #Teacher="ngModel"  required>
-        <option *ngFor="let teacher of teachers"   name="teachers" 
-        [ngValue]="teacher" >
-        {{teacher.fio}}</option>
-        </select> 
+    	<mat-select placeholder="Choose a teacher" [(ngModel)]="subject.teacher" #Teacher="ngModel" name="teacher" >
+    <mat-option *ngFor="let teacher of teachers" [value]="teacher" >
+      {{teacher.fio}}
+    </mat-option>
+  </mat-select>
 <div *ngIf="f.submitted && !Teacher.valid" class="alert alert-danger">Teacher is required</div>
 </div>
   <button class="btn btn-success"  type="submit" >Create</button>
 </form>
+</mat-card-content>
 </div>

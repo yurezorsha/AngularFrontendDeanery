@@ -10,6 +10,9 @@ import { AccessGuard } from './guards/access_guard';
 import { AuthGuard } from './guards/auth_guard';
 import { TokenInterceptor } from './login/TokenInterceptor';
 import { LoginComponent } from './login/login.component';
+import { AddMarkComponent } from './mark/add-mark.component';
+import { EditMarkComponent } from './mark/edit.mark.component';
+import { MarkComponent } from './mark/mark.component';
 import {AddStudComponent} from './stud/add-stud.component';
 import { EditStudComponent } from './stud/edit-stud.component';
 import { AddSubjectComponent } from './subject/add-subject.component';
@@ -48,6 +51,9 @@ const routes: Routes = [
      { path: 'subjects', component: SubjectComponent, outlet: 'cont'},
      { path: 'add-subject', component: AddSubjectComponent, outlet: 'cont', data: {roles:'ADMIN'} },
      { path: 'edit-subject/:id', component: EditSubjectComponent, outlet: 'cont', data: {roles:'ADMIN'} },
+     { path: 'marks', component: MarkComponent, outlet: 'cont'},
+     { path: 'add-mark', component: AddMarkComponent, outlet: 'cont', data: {roles:'ADMIN'} },
+     { path: 'edit-mark/:id', component: EditMarkComponent, outlet: 'cont', data: {roles:'ADMIN'} },
    ] },
   { path: '**', redirectTo: '/app-login' }
 ];
@@ -71,6 +77,7 @@ const routes: Routes = [
     CdkTableModule,
     MatPaginatorModule,
     MatSortModule,
+    
     
     
   ],

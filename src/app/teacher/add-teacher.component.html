@@ -1,5 +1,6 @@
 <div class="col-md-6">
   <h2 class="text-center">Add Teacher</h2>
+    <mat-card-content>
 <form #f="ngForm" novalidate  (ngSubmit)="f.form.valid && createTeacher()">
   <div class="form-group">
     <label for="idTeach">Id:</label>
@@ -28,4 +29,5 @@
   
   <button class="btn btn-success"  type="submit" >Create</button>
 </form>
+  </mat-card-content>
 </div>
