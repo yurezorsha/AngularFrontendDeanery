@@ -17,7 +17,7 @@
   
   <div class="form-group">
     	<label for="teacher">Teacher:</label>
-    	<mat-select placeholder="Choose a teacher" [(ngModel)]="subject.teacher" #Teacher="ngModel" name="teacher" >
+    	<mat-select placeholder="Choose a teacher" [(ngModel)]="subject.teacher" #Teacher="ngModel" name="teacher" required>
     <mat-option *ngFor="let teacher of teachers" [value]="teacher" >
       {{teacher.fio}}
     </mat-option>

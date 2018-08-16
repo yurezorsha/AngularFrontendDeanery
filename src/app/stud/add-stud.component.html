@@ -33,7 +33,7 @@
   </div>
   <div class="form-group">
     	<label for="group">Group:</label>
-    	<mat-select placeholder="Choose the group" [(ngModel)]="stud.gr" #Group="ngModel" name="selectgroup" >
+    	<mat-select placeholder="Choose the group" [(ngModel)]="stud.gr" #Group="ngModel" name="selectgroup" required>
     <mat-option *ngFor="let gr of grs" [value]="gr" >
       {{gr.name}}
     </mat-option>
